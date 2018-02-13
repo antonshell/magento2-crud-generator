@@ -1,0 +1,88 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}}\Grid;
+
+use {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}}\Collection as {{{entity}}}Collection;
+use Magento\Framework\Api\Search\SearchResultInterface;
+use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
+use {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}};
+
+class Collection extends {{{entity}}}Collection implements SearchResultInterface
+{
+    protected $aggregations;
+
+    protected function _construct()
+    {
+        $this->_init(Document::class, {{{entity}}}::class);
+    }
+
+    /**
+     * Set items list.
+     *
+     * @param \Magento\Framework\Api\Search\DocumentInterface[] $items
+     * @return $this
+     */
+    public function setItems(array $items = null)
+    {
+        return $this;
+    }
+
+    /**
+     * @return \Magento\Framework\Api\Search\AggregationInterface
+     */
+    public function getAggregations()
+    {
+        return $this->aggregations;
+    }
+
+    /**
+     * @param \Magento\Framework\Api\Search\AggregationInterface $aggregations
+     * @return $this
+     */
+    public function setAggregations($aggregations)
+    {
+        $this->aggregations = $aggregations;
+    }
+
+    /**
+     * Get search criteria.
+     *
+     * @return \Magento\Framework\Api\Search\SearchCriteriaInterface
+     */
+    public function getSearchCriteria()
+    {
+        return null;
+    }
+
+    /**
+     * Set search criteria.
+     *
+     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @return $this
+     */
+    public function setSearchCriteria(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
+    {
+        return $this;
+    }
+
+    /**
+     * Get total count.
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->_totalRecords;
+    }
+
+    /**
+     * Set total count.
+     *
+     * @param int $totalCount
+     * @return $this
+     */
+    public function setTotalCount($totalCount)
+    {
+        return $this;
+    }
+}

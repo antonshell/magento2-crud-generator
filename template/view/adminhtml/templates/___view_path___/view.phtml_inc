@@ -1,0 +1,78 @@
+<?php
+
+/* @var $model {{{vendor}}}\{{{module_name}}}\Model\{{{entity}}} */
+$model = $block->get{{{entity}}}();
+
+?>
+
+<section class="admin__page-section order-view-account-information">
+    <div class="admin__page-section-title">
+        <span class="title">
+            {{{entity}}} - <?= $model->getData('name'); ?>
+        </span>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item order-information">
+            <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-information-table">
+                    <tbody>
+                        <tr>
+                            <th><?= __('ID'); ?></th>
+                            <td><?= $model->getData('id'); ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Code'); ?></th>
+                            <td><?= $model->getData('code'); ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Name'); ?></th>
+                            <td><?= $model->getData('name'); ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Is Our Trademark'); ?></th>
+                            <td><?= $model->getData('is_our_trademark'); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="admin__page-section-item order-account-information">
+            <div class="admin__page-section-item-content">
+                <table class="admin__table-secondary order-account-information-table">
+                    <tbody>
+                        <tr>
+                            <th><?= __('Priority'); ?></th>
+                            <td><?= $model->getData('priority'); ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Warranty'); ?></th>
+                            <td><?= $model->getData('warranty'); ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Logo'); ?></th>
+                            <td><?= $model->getData('logo'); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item-content">
+            <table class="admin__table-secondary order-information-table">
+                <tbody>
+                <tr>
+                    <th><?= __('Description'); ?></th>
+                    <td><?= $model->getData('description'); ?></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>

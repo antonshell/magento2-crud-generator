@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="{{{module_name_underscore}}}::css/{{{view_path}}}.css"/>
+        <script src="{{{module_name_underscore}}}::js/{{{view_path}}}.js"/>
+    </head>
+
+    <update handle="{{{view_path}}}_{{{entity_lower}}}_edit"/>
+    <body/>
+</page>

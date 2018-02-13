@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/layout_generic.xsd">
+    <update handle="formkey"/>
+    <container name="root" label="Root">
+        <block class="{{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}}\Grid" name="admin.{{{view_path}}}.{{{entity_lower}}}.grid"/>
+    </container>
+</layout>

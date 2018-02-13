@@ -1,0 +1,86 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}};
+
+class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
+{
+    protected $moduleManager;
+    protected $factory;
+
+    public function __construct(
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Backend\Helper\Data $backendHelper,
+        \{{{vendor}}}\{{{module_name}}}\Model\{{{entity}}}Factory $factory,
+        \Magento\Framework\Module\Manager $moduleManager,
+        array $data = []
+    ) {
+        $this->factory = $factory;
+        $this->moduleManager = $moduleManager;
+        parent::__construct($context, $backendHelper, $data);
+    }
+
+    protected function _construct()
+    {
+        parent::_construct();
+        $this->setId('postGrid');
+        $this->setDefaultSort('id');
+        $this->setDefaultDir('DESC');
+        $this->setSaveParametersInSession(true);
+        $this->setUseAjax(false);
+        $this->setVarNameFilter('post_filter');
+    }
+
+    protected function _prepareCollection()
+    {
+        $collection = $this->factory->create()->getCollection();
+        
+        $this->setCollection($collection);
+        parent::_prepareCollection();
+
+        return $this;
+    }
+
+    protected function _prepareColumns()
+    {
+        $this->addColumn(
+            'id',
+            [
+                'header' => __('ID'),
+                'index' => 'id',
+            ]
+        );
+
+        $this->addColumn(
+            'name',
+            [
+                'header' => __('Name'),
+                'index' => 'name',
+            ]
+        );
+
+        $block = $this->getLayout()->getBlock('grid.bottom.links');
+        if ($block) {
+            $this->setChild('grid.bottom.links', $block);
+        }
+
+        return parent::_prepareColumns();
+    }
+
+    protected function _prepareMassaction()
+    {
+        return $this;
+    }
+		
+
+    public function getGridUrl()
+    {
+        return $this->getUrl('{{{view_path}}}/*/index', ['_current' => true]);
+    }
+
+    public function getRowUrl($row)
+    {
+        return $this->getUrl('{{{view_path}}}/*/edit', ['id' => $row->getId()]);
+
+    }
+
+}

@@ -1,0 +1,57 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Block\Adminhtml;
+
+use Magento\Backend\Model\UrlInterface;
+
+class Preview extends \Magento\Framework\Data\Form\Element\AbstractElement
+{
+    protected $_urlBuilder;
+
+    public function __construct(
+        \Magento\Framework\Data\Form\Element\Factory $factoryElement,
+        \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
+        \Magento\Framework\Escaper $escaper,
+        UrlInterface $urlBuilder,
+        $data = []
+    ) {
+        $this->_urlBuilder = $urlBuilder;
+        parent::__construct($factoryElement, $factoryCollection, $escaper, $data);
+        $this->setType('file');
+    }
+
+    /**
+     * Return element html code
+     * @return string
+     */
+    public function getElementHtml()
+    {
+        $html = '';
+
+        $this->setClass('input-file');
+        $html .= parent::getElementHtml();
+
+        return $html;
+    }
+
+
+    /**
+     * Return html code of hidden element
+     *
+     * @return string
+     */
+    protected function _getHiddenInput()
+    {
+        return '<input type="hidden" name="' . parent::getName() . '[value]" value="' . $this->getValue() . '" />';
+    }
+
+    /**
+     * Return name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getData('name');
+    }
+}

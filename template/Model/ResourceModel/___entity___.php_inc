@@ -1,0 +1,32 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Model\ResourceModel;
+
+class {{{entity}}} extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
+{
+    const TABLE_NAME = '{{{table_name}}}';
+
+    /**
+     * @return mixed
+     */
+    public static function getTableName(){
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        
+        $tableName = self::TABLE_NAME;
+        $config = $objectManager->get('Magento\Framework\App\DeploymentConfig');
+        $configData = $config->getConfigData('db');
+        $prefix = isset($configData['table_prefix']) ? $configData['table_prefix'] : '';
+
+        return $prefix . $tableName;
+    }
+
+    /**
+     * Initialize resource model
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(self::TABLE_NAME, 'id');
+    }
+}

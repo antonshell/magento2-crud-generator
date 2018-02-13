@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="{{{module_name_underscore}}}::css/{{{view_path}}}.css"/>
+        <script src="{{{module_name_underscore}}}::js/{{{view_path}}}.js"/>
+    </head>
+    <body>
+
+        <referenceContainer name="content">
+            <block class="{{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}}" name="{{{view_path}}}_{{{entity_lower}}}_listing"/>
+        </referenceContainer>
+        <referenceContainer name="admin.{{{view_path}}}.{{{entity_lower}}}.grid"></referenceContainer>
+    </body>
+</page>

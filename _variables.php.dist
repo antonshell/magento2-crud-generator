@@ -1,0 +1,13 @@
+<?php
+
+return [
+    'vendor' => 'Company',
+    'module_name' => 'Filters',
+    'module_name_underscore' => 'DIY_Filters',
+    'view_path' => 'filters',
+    'entity' => 'Filter',
+    'view_path_ucf' => 'Filters',
+    'entity_lower' => 'filter',
+    'setup_version' => '1.0.0',
+    'table_name' => 'company_filter',
+];

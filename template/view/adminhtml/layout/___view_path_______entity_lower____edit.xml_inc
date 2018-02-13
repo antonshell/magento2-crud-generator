@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="{{{module_name_underscore}}}::css/{{{view_path}}}.css"/>
+        <script src="{{{module_name_underscore}}}::js/{{{view_path}}}.js"/>
+    </head>
+
+    <body>
+        <referenceContainer name="content">
+            <block class="{{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}}\Edit" name="{{{view_path}}}_{{{entity_lower}}}_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="{{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}}\Edit\Tabs" name="{{{view_path}}}_{{{entity_lower}}}_edit_tabs">
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">{{{view_path}}}_{{{entity_lower}}}_edit_tab_general</argument>
+                    <argument name="block" xsi:type="string">{{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}}\Edit\Tab\General</argument>
+                </action>
+
+                <block class="{{{vendor}}}\{{{module_name}}}\Block\Adminhtml\{{{entity}}}\Edit\Tab\Form" name="{{{view_path}}}_{{{entity_lower}}}_edit_tab_form"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">{{{view_path}}}_{{{entity_lower}}}_edit_tab_form</argument>
+                </action>
+
+            </block>
+        </referenceContainer>
+
+    </body>
+</page>

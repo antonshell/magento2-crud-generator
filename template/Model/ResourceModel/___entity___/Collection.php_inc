@@ -1,0 +1,50 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}};
+
+/**
+ * Class Collection
+ * @package {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}}
+ */
+class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+{
+    protected $_idFieldName = 'id';
+
+    protected $_eventPrefix = '{{{module_name_underscore}}}_{{{entity_lower}}}_collection';
+
+    protected $_eventObject = '{{{entity_lower}}}_collection';
+
+    /**
+     * Define resource model
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init('{{{vendor}}}\{{{module_name}}}\Model\{{{entity}}}', '{{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}}');
+    }
+
+    /**
+     * Get SQL for get record count.
+     * Extra GROUP BY strip added.
+     *
+     * @return \Magento\Framework\DB\Select
+     */
+    public function getSelectCountSql()
+    {
+        $countSelect = parent::getSelectCountSql();
+        $countSelect->reset(\Zend_Db_Select::GROUP);
+        return $countSelect;
+    }
+
+    /**
+     * @param string $valueField
+     * @param string $labelField
+     * @param array $additional
+     * @return array
+     */
+    protected function _toOptionArray($valueField = 'id', $labelField = 'name', $additional = [])
+    {
+        return parent::_toOptionArray($valueField, $labelField, $additional);
+    }
+}

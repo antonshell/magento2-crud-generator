@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="{{{module_name_underscore}}}::menu" title="{{{view_path_ucf}}}" sortOrder="20" module="{{{module_name_underscore}}}" resource="{{{module_name_underscore}}}::menu"/>
+		<add id="{{{module_name_underscore}}}::{{{view_path}}}" title="{{{view_path_ucf}}}" module="{{{module_name_underscore}}}" parent="{{{module_name_underscore}}}::menu" resource="{{{module_name_underscore}}}::{{{view_path}}}" action="{{{view_path}}}/{{{entity_lower}}}"/>
+	</menu>
+</config>

@@ -1,0 +1,41 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Model;
+
+use \Magento\Framework\Model\AbstractModel;
+use \Magento\Framework\DataObject\IdentityInterface;
+
+/**
+ * Class {{{entity}}}
+ * @package {{{vendor}}}\{{{module_name}}}\Model
+ */
+class {{{entity}}} extends AbstractModel implements IdentityInterface
+{
+    const CACHE_TAG = '{{{module_name_underscore}}}_{{{entity_lower}}}';
+
+    protected $_cacheTag = '{{{module_name_underscore}}}_{{{entity_lower}}}';
+
+    protected $_eventPrefix = '{{{module_name_underscore}}}_{{{entity_lower}}}';
+
+    protected function _construct()
+    {
+        $this->_init('{{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}}');
+    }
+
+    /**
+     * @return array
+     */
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
+    }
+
+    /**
+     * @return array
+     */
+    public function getDefaultValues()
+    {
+        $values = [];
+        return $values;
+    }
+}

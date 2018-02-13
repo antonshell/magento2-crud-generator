@@ -1,0 +1,134 @@
+<?php
+
+namespace {{{vendor}}}\{{{module_name}}}\Setup;
+
+use {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}};
+
+/**
+ * Class InstallSchema
+ * @package {{{vendor}}}\{{{module_name}}}\Setup
+ */
+class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
+{
+    public $table = {{{entity}}}::TABLE_NAME;
+
+    /**
+     * install tables
+     *
+     * @param \Magento\Framework\Setup\SchemaSetupInterface $setup
+     * @param \Magento\Framework\Setup\ModuleContextInterface $context
+     * @return void
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     */
+    public function install(\Magento\Framework\Setup\SchemaSetupInterface $setup, \Magento\Framework\Setup\ModuleContextInterface $context)
+    {
+        $installer = $setup;
+        $installer->startSetup();
+
+        $this->setupTable($installer);
+
+        $installer->endSetup();
+    }
+
+    /**
+     * @param \Magento\Framework\Setup\SchemaSetupInterface $installer
+     * @throws \Zend_Db_Exception
+     */
+    private function setupTable(\Magento\Framework\Setup\SchemaSetupInterface $installer){
+        if (!$installer->tableExists($this->table)) {
+            $table = $installer->getConnection()->newTable(
+                $installer->getTable($this->table)
+            )
+                ->addColumn(
+                    'id',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
+                    [
+                        'identity' => true,
+                        'nullable' => false,
+                        'primary'  => true,
+                        'unsigned' => true,
+                    ],
+                    'Id'
+                )
+                ->addColumn(
+                    'code',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    255,
+                    [],
+                    '{{{entity}}} code'
+                )
+                ->addColumn(
+                    'name',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    255,
+                    [],
+                    '{{{entity}}} Name'
+                )
+                ->addColumn(
+                    'is_our_trademark',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
+                    null,
+                    [],
+                    'Is our trademark'
+                )
+                ->addColumn(
+                    'priority',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                    null,
+                    [],
+                    '{{{entity}}} priority'
+                )
+                ->addColumn(
+                    'warranty',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    255,
+                    [],
+                    '{{{entity}}} warranty'
+                )
+                ->addColumn(
+                    'logo',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    255,
+                    [],
+                    '{{{entity}}} logo'
+                )
+                ->addColumn(
+                    'description',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    null,
+                    [],
+                    '{{{entity}}} description'
+                )
+                ->addColumn(
+                    'created_at',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
+                    255,
+                    [],
+                    'Created At'
+                )
+                ->addColumn(
+                    'updated_at',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
+                    255,
+                    [],
+                    'Updated At'
+                );
+
+                /*->addForeignKey(
+                    $installer->getFkName(
+                        $this->serviceTable,
+                        'city_id',
+                        $this->cityTable,
+                        'id'
+                    ),
+                    'city_id',
+                    $installer->getTable($this->cityTable),
+                    'id',
+                    \Magento\Framework\DB\Ddl\Table::ACTION_RESTRICT
+                );*/
+
+            $installer->getConnection()->createTable($table);
+        }
+    }
+}

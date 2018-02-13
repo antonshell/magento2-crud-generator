@@ -1,0 +1,16 @@
+{
+  "name": "{{{vendor}}}/{{{module_name}}}",
+  "description": "{{{vendor}}} Magento2 {{{module_name}}} extension",
+  "keywords": ["magento2", "{{{vendor}}}", "{{{view_path}}}"],
+  "type": "magento2-module",
+  "license": "OSL-3.0",
+  "require": {
+    "php": "~7.1"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "{{{vendor}}}\\{{{module_name}}}\\": ""
+    }
+  }
+}
