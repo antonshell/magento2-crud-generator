@@ -12,7 +12,7 @@ class Delete extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        throw new \Exception('Not implemented');
+        //throw new \Exception('Not implemented');
 
         // check if we know what should be deleted
         $id = $this->getRequest()->getParam('id');

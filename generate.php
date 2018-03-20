@@ -11,8 +11,11 @@ $variables = require '_variables.php';
 $service = new FileService();
 
 $basePath = __DIR__ . '/template';
-$outPath = '/var/www/MAGENTO_220_EE/app/code/DIY/FiltersCrud';
+$outPath = $config['outPath'];
 
+
+echo "disabled\n";
+die();
 
 $files = $service->getDirContents($basePath);
 

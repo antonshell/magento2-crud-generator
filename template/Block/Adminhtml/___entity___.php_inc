@@ -25,7 +25,7 @@ class {{{entity}}} extends \Magento\Backend\Block\Widget\Container
      */
     protected function _prepareLayout()
     {
-        /*$addButtonProps = [
+        $addButtonProps = [
             'id' => 'add_new',
             'label' => __('Add New'),
             'class' => 'add',
@@ -33,7 +33,7 @@ class {{{entity}}} extends \Magento\Backend\Block\Widget\Container
             'class_name' => 'Magento\Backend\Block\Widget\Button\SplitButton',
             'options' => $this->_getAddButtonOptions(),
         ];
-        $this->buttonList->add('add_new', $addButtonProps);*/
+        $this->buttonList->add('add_new', $addButtonProps);
 
         $this->setChild(
             'grid',

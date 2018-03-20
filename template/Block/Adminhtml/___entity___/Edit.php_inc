@@ -48,7 +48,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
             -100
         );
 
-        $this->buttonList->remove('delete');
+        //$this->buttonList->remove('delete');
     }
 
     public function getHeaderText()
