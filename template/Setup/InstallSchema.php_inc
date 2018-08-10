@@ -40,7 +40,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                 $installer->getTable($this->table)
             )
                 ->addColumn(
-                    'id',
+                    '{{{primary_key}}}',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
                     [
@@ -52,13 +52,6 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     'Id'
                 )
                 ->addColumn(
-                    'code',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    255,
-                    [],
-                    '{{{entity}}} code'
-                )
-                ->addColumn(
                     'name',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     255,
@@ -66,25 +59,18 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     '{{{entity}}} Name'
                 )
                 ->addColumn(
-                    'is_our_trademark',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
-                    null,
-                    [],
-                    'Is our trademark'
-                )
-                ->addColumn(
-                    'priority',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-                    null,
-                    [],
-                    '{{{entity}}} priority'
-                )
-                ->addColumn(
-                    'warranty',
+                    'field_1',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     255,
                     [],
-                    '{{{entity}}} warranty'
+                    'Field 1'
+                )
+                ->addColumn(
+                    'field_2',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    255,
+                    [],
+                    'Field 2'
                 )
                 ->addColumn(
                     'logo',

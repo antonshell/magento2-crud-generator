@@ -43,10 +43,10 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     protected function _prepareColumns()
     {
         $this->addColumn(
-            'id',
+            '{{{primary_key}}}',
             [
                 'header' => __('ID'),
-                'index' => 'id',
+                'index' => '{{{primary_key}}}',
             ]
         );
 

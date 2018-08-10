@@ -13,10 +13,6 @@ $service = new FileService();
 $basePath = __DIR__ . '/template';
 $outPath = $config['outPath'];
 
-
-echo "disabled\n";
-die();
-
 $files = $service->getDirContents($basePath);
 
 $service->recurseRmdir($outPath);

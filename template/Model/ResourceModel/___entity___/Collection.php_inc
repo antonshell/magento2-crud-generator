@@ -8,7 +8,7 @@ namespace {{{vendor}}}\{{{module_name}}}\Model\ResourceModel\{{{entity}}};
  */
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-    protected $_idFieldName = 'id';
+    protected $_idFieldName = '{{{primary_key}}}';
 
     protected $_eventPrefix = '{{{module_name_underscore}}}_{{{entity_lower}}}_collection';
 
@@ -43,7 +43,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      * @param array $additional
      * @return array
      */
-    protected function _toOptionArray($valueField = 'id', $labelField = 'name', $additional = [])
+    protected function _toOptionArray($valueField = '{{{primary_key}}}', $labelField = 'name', $additional = [])
     {
         return parent::_toOptionArray($valueField, $labelField, $additional);
     }

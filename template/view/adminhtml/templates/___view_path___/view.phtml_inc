@@ -18,19 +18,11 @@ $model = $block->get{{{entity}}}();
                     <tbody>
                         <tr>
                             <th><?= __('ID'); ?></th>
-                            <td><?= $model->getData('id'); ?></td>
-                        </tr>
-                        <tr>
-                            <th><?= __('Code'); ?></th>
-                            <td><?= $model->getData('code'); ?></td>
+                            <td><?= $model->getData('{{{primary_key}}}'); ?></td>
                         </tr>
                         <tr>
                             <th><?= __('Name'); ?></th>
                             <td><?= $model->getData('name'); ?></td>
-                        </tr>
-                        <tr>
-                            <th><?= __('Is Our Trademark'); ?></th>
-                            <td><?= $model->getData('is_our_trademark'); ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -42,16 +34,12 @@ $model = $block->get{{{entity}}}();
                 <table class="admin__table-secondary order-account-information-table">
                     <tbody>
                         <tr>
-                            <th><?= __('Priority'); ?></th>
-                            <td><?= $model->getData('priority'); ?></td>
+                            <th><?= __('Field 1'); ?></th>
+                            <td><?= $model->getData('field_1'); ?></td>
                         </tr>
                         <tr>
-                            <th><?= __('Warranty'); ?></th>
-                            <td><?= $model->getData('warranty'); ?></td>
-                        </tr>
-                        <tr>
-                            <th><?= __('Logo'); ?></th>
-                            <td><?= $model->getData('logo'); ?></td>
+                            <th><?= __('Field 2'); ?></th>
+                            <td><?= $model->getData('field_2'); ?></td>
                         </tr>
                     </tbody>
                 </table>

@@ -55,7 +55,9 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Edit Information')]);
 
         if ($model->getId()) {
+            $model->setData('id', $model->getId());
             $fieldset->addField('id', 'hidden', ['name' => 'id']);
+            $fieldset->addField('{{{primary_key}}}', 'hidden', ['name' => '{{{primary_key}}}']);
         }
 
         $config = $this->wysiwyg->getConfig();
