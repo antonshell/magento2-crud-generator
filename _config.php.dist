@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'magento_path' => '/var/www/MAGENTO/app/code/Company/Filters'
+    'outPath' => '/var/www/MAGENTO/app/code/Company/Filters'
 ];
