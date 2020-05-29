@@ -81,3 +81,12 @@ bin/magento module:enable Antonshell_Posts
 sudo php bin/magento setup:upgrade
 sudo php bin/magento setup:di:compile
 ```
+
+4 . Edit code, add fields etc. Edit following files:
+
+```
+/path_to_magento_installation/app/code/Antonshell/Posts/Setup/InstallSchema.php
+/path_to_magento_installation/app/code/Antonshell/Posts/view/adminhtml/templates/posts/view.phtml
+/path_to_magento_installation/app/code/Antonshell/Posts/Block/Adminhtml/Post/Grid.php
+/path_to_magento_installation/app/code/Antonshell/Posts/Block/Adminhtml/Post/Edit/Tab/Form.php
+```
