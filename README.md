@@ -57,7 +57,7 @@ mkdir -p /path_to_magento_installation/app/code/Antonshell/Posts
 5 . Generate module
 
 ```
-php php generate.php
+php generate.php
 ```
 
 # On magento side
